@@ -8,8 +8,13 @@ AMMO_PER_BATTERY = 10
 
 
 def explosion_color(progress):
-    """Return an (r, g, b) colour for an explosion (progress 0..1 of its life), or None for the default."""
-    pass
+    """Blend from white through yellow and orange to red over the explosion's life."""
+    progress = max(0.0, min(1.0, progress))
+    colors = ((255, 255, 255), (255, 255, 0), (255, 128, 0), (255, 0, 0))
+    scaled = progress * (len(colors) - 1)
+    index = min(int(scaled), len(colors) - 2)
+    fraction = scaled - index
+    return tuple(round(a + (b - a) * fraction) for a, b in zip(colors[index], colors[index + 1]))
 
 
 def on_city_destroyed(city):
