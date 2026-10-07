@@ -23,8 +23,8 @@ def on_city_destroyed(city):
 
 
 def city_repair_threshold():
-    """Return a score value at which a destroyed city is rebuilt, or None to disable city repair."""
-    pass
+    """Repair one destroyed city at each new 2000-point milestone."""
+    return 2000
 
 
 class Battery:
