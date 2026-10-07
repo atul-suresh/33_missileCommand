@@ -50,9 +50,11 @@ class Interceptor:
     def update(self, dt):
         """Advance toward the target; return True once the warhead should detonate."""
         offset = self.target - self.pos
-        if offset.length() < 6:
+        step = INTERCEPTOR_SPEED * dt
+        if offset.length() <= step:
+            self.pos = pygame.Vector2(self.target)
             return True
-        self.pos += offset.normalize() * INTERCEPTOR_SPEED * dt
+        self.pos += offset.normalize() * step
         return False
 
 
@@ -131,8 +133,8 @@ class Game:
         if self.state != "play":
             return
         threshold = city_repair_threshold()
-        if threshold and self.score // threshold > self.repairs_awarded:
-            self.repairs_awarded = self.score // threshold
+        while threshold and self.score // threshold > self.repairs_awarded:
+            self.repairs_awarded += 1
             for city in self.cities:
                 if not city.alive:
                     city.alive = True
