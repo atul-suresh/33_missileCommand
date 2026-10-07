@@ -18,8 +18,8 @@ def explosion_color(progress):
 
 
 def on_city_destroyed(city):
-    """Called when a city is hit; add screen shake, sounds, or a game-over warning here."""
-    pass
+    """Show a brief warning beside the newly destroyed city."""
+    city.destruction_timer = 2.0
 
 
 def city_repair_threshold():
@@ -38,6 +38,7 @@ class City:
     def __init__(self, x):
         self.pos = pygame.Vector2(x, GROUND_Y)
         self.alive = True
+        self.destruction_timer = 0.0
 
 
 class Interceptor:
@@ -125,6 +126,8 @@ class Game:
             self.missiles.append(Missile(random.choice(targets), 45 + self.wave * 6))
 
     def update(self, dt):
+        for city in self.cities:
+            city.destruction_timer = max(0.0, city.destruction_timer - dt)
         if self.state != "play":
             return
         threshold = city_repair_threshold()
@@ -195,6 +198,10 @@ class Game:
             fade = 1 - explosion.progress * 0.5
             color = explosion_color(explosion.progress) or (int(255 * fade), int(200 * fade), 60)
             pygame.draw.circle(screen, color, explosion.pos, max(1, int(explosion.radius)))
+        for city in self.cities:
+            if city.destruction_timer > 0:
+                label = self.font.render("CITY DESTROYED!", True, (255, 100, 80))
+                screen.blit(label, label.get_rect(center=(city.pos.x, GROUND_Y - 50)))
         hud = self.font.render(f"Score {self.score}   Wave {self.wave}   Click to fire   R = reset", True, (240, 240, 240))
         screen.blit(hud, (10, 8))
         if self.state == "lose":
