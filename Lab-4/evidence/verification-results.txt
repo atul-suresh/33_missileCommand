@@ -1,0 +1,31 @@
+MODE: vector test double (Pygame unavailable)
+Drawing assertions use spies; this suite is not gameplay-video evidence.
+test_battery_selection_and_one_ammo_per_launch (__main__.GameChecks.test_battery_selection_and_one_ammo_per_launch) ... ok
+test_city_feedback_new_hit_repeat_hit_and_battery (__main__.GameChecks.test_city_feedback_new_hit_repeat_hit_and_battery) ... ok
+test_collision_respects_current_not_maximum_radius (__main__.GameChecks.test_collision_respects_current_not_maximum_radius) ... ok
+test_collision_uses_missile_head_and_scores_once (__main__.GameChecks.test_collision_uses_missile_head_and_scores_once) ... ok
+test_color_endpoints_midpoint_and_clamping (__main__.GameChecks.test_color_endpoints_midpoint_and_clamping) ... ok
+test_color_integer_bounds_and_smoothness (__main__.GameChecks.test_color_integer_bounds_and_smoothness) ... ok
+test_draw_uses_explosion_color_and_radius (__main__.GameChecks.test_draw_uses_explosion_color_and_radius) ... ok
+test_explosion_timing_and_radius (__main__.GameChecks.test_explosion_timing_and_radius) ... ok
+test_feedback_expiration (__main__.GameChecks.test_feedback_expiration) ... ok
+test_game_detonates_interceptor_at_target (__main__.GameChecks.test_game_detonates_interceptor_at_target) ... ok
+test_interceptor_already_at_target (__main__.GameChecks.test_interceptor_already_at_target) ... ok
+test_interceptor_does_not_detonate_short_of_target (__main__.GameChecks.test_interceptor_does_not_detonate_short_of_target) ... ok
+test_interceptor_reaches_exact_target_without_oscillation (__main__.GameChecks.test_interceptor_reaches_exact_target_without_oscillation) ... ok
+test_last_ammo_then_fallback (__main__.GameChecks.test_last_ammo_then_fallback) ... ok
+test_last_city_game_over_feedback_and_no_repair (__main__.GameChecks.test_last_city_game_over_feedback_and_no_repair) ... ok
+test_launch_target_and_state_guards (__main__.GameChecks.test_launch_target_and_state_guards) ... ok
+test_missile_moves_and_impacts_its_target (__main__.GameChecks.test_missile_moves_and_impacts_its_target) ... ok
+test_real_scoring_crosses_milestone_then_repairs (__main__.GameChecks.test_real_scoring_crosses_milestone_then_repairs) ... ok
+test_repair_each_successive_milestone_once (__main__.GameChecks.test_repair_each_successive_milestone_once) ... ok
+test_repair_no_destroyed_city_consumes_milestone (__main__.GameChecks.test_repair_no_destroyed_city_consumes_milestone) ... ok
+test_repair_processes_every_crossed_milestone (__main__.GameChecks.test_repair_processes_every_crossed_milestone) ... ok
+test_reset_clears_all_state_and_repair_bookkeeping (__main__.GameChecks.test_reset_clears_all_state_and_repair_bookkeeping) ... ok
+test_spawn_uses_only_alive_targets (__main__.GameChecks.test_spawn_uses_only_alive_targets) ... ok
+test_wave_progression_bonus_and_ammo_refill (__main__.GameChecks.test_wave_progression_bonus_and_ammo_refill) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 0.012s
+
+OK
